@@ -5,25 +5,20 @@ fun main() {
 
     // Elvis Operator
     val result = name?.toUpperCase() ?: "The value was null"
-
     println(result::class)
     println(result.toUpperCase())
 
     // Safe Cast operator
     val someThing: Any = arrayOf(2, 3, 4, 5)
-
     val str = someThing as? String
-
     println(str)
     println(str?.toUpperCase())
 
     // Assertion on the Nullable type will throw the exception if the error occur
     val string1: String? = "Not null, might be in the future"
-
     println(string1!!)
     val capitalString = string1.toUpperCase()
     println(capitalString)
-
     val string2: String? = "The is the kingdom come"
     string2?.let { printText(it) }
 
