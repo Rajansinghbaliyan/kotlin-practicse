@@ -24,11 +24,20 @@ fun main() {
 
 
     // Arrays of the Null value
-    val nullArray = arrayOf(1,null,3,4,5,null)
-    val nullArray1 = Array<Int?>(4) {null}
-    nullArray.forEach { println("${ it?.times(32) }") }
+    val nullArray = arrayOf(1, null, 3, 4, 5, null)
+    val nullArray1 = Array<Int?>(4) { null }
+    var nullableInts = arrayOfNulls<Int>(3)
+    nullArray.forEach { println("${it?.times(32)}") }
     nullArray1.forEach { println(it) }
 
+    nullableInts = nullArray
+            .mapNotNull {
+                it?.times(10)
+            }
+            .take(nullableInts.size)
+            .toTypedArray()
+
+    nullableInts.forEach { println(it) }
 }
 
 fun printText(text: String) {
